@@ -1,0 +1,29 @@
+
+    {% extends "base.html" %}
+    {% block content %}
+    <br/>
+    <h3>TODO App</h3>
+    <br/>
+   <form action="{{ url_for('add_item')}}"  method="POST">
+   {{ todo_form.hidden_tag() }} 
+   <strong>{{ todo_form.input_todo.label }}</strong> <br/>
+    {{ todo_form.input_todo() }} <br/><br/>
+    <strong>{{ todo_form.input_description.label }}</strong> <br/>
+    {{ todo_form.input_description() }} <br/><br/>
+    {{ todo_form.submit_btn() }}
+    
+   </form>
+
+    <br/>
+    <br/>
+    <h3>TODO List Information</h3>
+    <ol>
+        {% for item in items %}
+            <li> {{ item.name }}: {{ item.description }} </li>
+        {% endfor %}
+    </ol>
+
+    {% endblock %}
+</div>
+
+
